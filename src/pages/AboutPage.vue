@@ -77,9 +77,10 @@ async function onNext() {
     return;
   }
   // `clear` keeps `whoami`: an empty window leaves the page with no content.
+  // The page shrinks back, so start again from the top.
   reset(1);
   await nextTick();
-  revealNextPrompt();
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
   nextButton.value?.focus({ preventScroll: true });
 }
 
