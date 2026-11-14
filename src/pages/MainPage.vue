@@ -466,7 +466,7 @@ onUnmounted(() => {
   <div>
     <section
       ref="hero"
-      class="pt-6 sm:pt-20 pb-8 relative flex flex-col w-full overflow-hidden min-h-[calc(100svh-89px)]
+      class="pt-6 short:pt-3 sm:pt-20 pb-8 relative flex flex-col w-full overflow-hidden min-h-[calc(100svh-89px)]
       bg-linear-to-br from-[#c4a0f0] via-[#dc9bd8] to-[#f28fa6]"
     >
       <div data-animate="hero-bg" aria-hidden="true" class="absolute inset-0">
@@ -518,11 +518,11 @@ onUnmounted(() => {
           class="mx-auto max-w-xl"
         >
 
-          <div ref="terminal" class="relative space-y-4 p-5 sm:p-8">
+          <div ref="terminal" class="relative space-y-4 p-5 short:space-y-2 short:p-4 sm:p-8">
             <h1
               data-terminal-line="command"
               class="mx-auto grid w-fit grid-cols-[auto_auto] text-4xl font-semibold uppercase
-              leading-tight text-white sm:text-6xl"
+              leading-tight text-white short:text-3xl sm:text-6xl"
             >
               <span class="text-right text-green-500">B</span>
               <span>uild</span>
@@ -534,12 +534,12 @@ onUnmounted(() => {
               <span>oost</span>
             </h1>
 
-            <p data-terminal-line="command" class="w-fit font-mono text-base text-ctp-text">
+            <p data-terminal-line="command" class="w-fit font-mono text-base text-ctp-text short:text-sm">
               <span aria-hidden="true" class="mr-3 text-green-500">$</span>whoami
             </p>
             <p
               data-terminal-line="output"
-              class="font-mono text-base leading-7 text-ctp-text"
+              class="font-mono text-base leading-7 text-ctp-text short:text-sm short:leading-6"
             >
               Self-taught front-end developer based in Tallinn. I build for people, debug for
               clarity, and boost for speed — because a website is something a human has to use.
@@ -547,7 +547,7 @@ onUnmounted(() => {
             <p
               data-terminal-line="output"
               aria-hidden="true"
-              class="w-fit font-mono text-base text-green-500"
+              class="w-fit font-mono text-base text-green-500 short:text-sm"
             >$&nbsp;</p>
 
             <span
@@ -558,7 +558,7 @@ onUnmounted(() => {
           </div>
         </TerminalWindow>
 
-        <div data-animate="hero-actions" class="flex flex-wrap justify-center gap-3 pt-6 sm:pt-10">
+        <div data-animate="hero-actions" class="flex flex-wrap justify-center gap-3 pt-6 short:pt-3 sm:pt-10">
           <button
             type="button"
             class="inline-flex cursor-pointer items-center rounded-lg border-4
@@ -615,35 +615,37 @@ onUnmounted(() => {
 
           </RouterLink>
         </div>
-      </div>
-      <button
-        type="button"
-        aria-label="Scroll to About"
-        class="group relative mx-auto flex size-12 -translate-y-12
-        cursor-pointer items-center justify-center text-white"
-        @click="scrollToAbout"
-      >
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="size-10 transition-transform duration-300 group-hover:translate-y-2
-          motion-reduce:transition-none"
+        <!-- Inside the centered block, so it always sits the same distance
+        under the buttons, whatever the screen height. -->
+        <button
+          type="button"
+          aria-label="Scroll to About"
+          class="group relative mx-auto mt-3 flex size-12 short:mt-1 sm:mt-8
+          cursor-pointer items-center justify-center text-white"
+          @click="scrollToAbout"
         >
-          <path
-            d="M12 4v12"
-            class="origin-bottom transform-fill scale-y-0 opacity-0
-            transition-[scale,opacity] duration-300
-            group-hover:scale-y-100 group-hover:opacity-100
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-10 transition-transform duration-300 group-hover:translate-y-2
             motion-reduce:transition-none"
-          />
-          <path d="m5 9 7 7 7-7" />
-        </svg>
-      </button>
+          >
+            <path
+              d="M12 4v12"
+              class="origin-bottom transform-fill scale-y-0 opacity-0
+              transition-[scale,opacity] duration-300
+              group-hover:scale-y-100 group-hover:opacity-100
+              motion-reduce:transition-none"
+            />
+            <path d="m5 9 7 7 7-7" />
+          </svg>
+        </button>
+      </div>
     </section>
 
     <section
